@@ -4,7 +4,7 @@ Repositório destinado ao desenvolvimento de um app que apresenta um feed com v�
 
 * **Disciplina:** Leitura de Software
 * **Doscente:** [Taciano Messias Moraes](http://www.inf.ufg.br/node/984?device=mobile)
-* **Discentes:** Fernando Callata, Lucas Sampaio Dias, Murillo Nunes, Saulo Calixto
+* **Discentes:** [Fernando Callata](https://github.com/fernandohre), [Lucas Dias](https://github.com/sampaiodias), [Murillo Nunes](https://github.com/murillonunes), [Saulo Calixto](https://github.com/saulocalixto)
 * **Curso:** Engenharia de Software
 * **Instituição:** Instituto de Informática - Universidade Federal de Goiás (UFG)
 
