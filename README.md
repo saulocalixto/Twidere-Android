@@ -3,7 +3,7 @@
 Repositório destinado ao desenvolvimento de um app que apresenta um feed com várias informações do jogo World of Warcraft relevantes a cada usuário. Este app é uma modificação do [Twidere](https://github.com/TwidereProject/Twidere-Android) utilizando a [API oficial do World of Warcraft.](https://dev.battle.net/io-docs)
 
 * **Disciplina:** Leitura de Software
-* **Doscente:** [Taciano Messias Moraes](http://www.inf.ufg.br/node/984?device=mobile)
+* **Docente:** [Taciano Messias Moraes](http://www.inf.ufg.br/node/984?device=mobile)
 * **Discentes:** [Fernando Callata](https://github.com/fernandohre), [Lucas Dias](https://github.com/sampaiodias), [Murillo Nunes](https://github.com/murillonunes), [Saulo Calixto](https://github.com/saulocalixto)
 * **Curso:** Engenharia de Software
 * **Instituição:** Instituto de Informática - Universidade Federal de Goiás (UFG)
