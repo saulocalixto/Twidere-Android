@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -41,6 +42,33 @@ public class BlizzApiHelper {
     }
 
     /**
+     * Gets the data of the specified achievement in a JSON format (inside of a String)
+     * @param id The id of the Achievement. You can test an id using wowhead.com
+     *           Example: "https://wowhead.com/achievement=11163".
+     * @param locale The language of the response.
+     * @return
+     * @throws IOException
+     */
+    public static String getAchievement(String id, ApiLocale locale) throws IOException {
+        return getJson(new URL(getAchievement(id, locale)));
+    }
+
+    private static String getAchievementApiLink(String id, ApiLocale locale) {
+        ApiLocale responseLocale = parseLocale(locale);
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(BASE_URL);
+        builder.append("achievement/");
+        builder.append(id);
+        builder.append("&locale=");
+        builder.append(responseLocale);
+        builder.append("&apikey=");
+        builder.append(API_KEY);
+
+        return  builder.toString();
+    }
+
+    /**
      * Gets the proper URL for API calls for guild data.
      *
      * @param fields A value to tell the API to include the guild's specified data
@@ -51,9 +79,7 @@ public class BlizzApiHelper {
      * @return
      */
     private static String getGuildApiLink(String fields, String server, String guild, ApiLocale locale) {
-        ApiLocale responseLocale = locale;
-        if (responseLocale == null)
-            responseLocale = ApiLocale.en_US;
+        ApiLocale responseLocale = parseLocale(locale);
 
         StringBuilder builder = new StringBuilder();
         builder.append(BASE_URL);
@@ -88,6 +114,17 @@ public class BlizzApiHelper {
         return file.toString();
     }
 
+    private static ApiLocale parseLocale(ApiLocale locale) {
+        ApiLocale responseLocale = locale;
+        if (responseLocale == null)
+            responseLocale = ApiLocale.en_US;
+
+        return responseLocale;
+    }
+
+    /**
+     * All available languages for Battle.net API responses
+     */
     public static enum ApiLocale {
         en_US, pt_BR, es_MX;
     }
