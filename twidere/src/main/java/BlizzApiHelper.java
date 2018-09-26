@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -50,7 +49,7 @@ public class BlizzApiHelper {
      * @throws IOException
      */
     public static String getAchievement(String id, ApiLocale locale) throws IOException {
-        return getJson(new URL(getAchievement(id, locale)));
+        return getJson(new URL(getAchievementApiLink(id, locale)));
     }
 
     private static String getAchievementApiLink(String id, ApiLocale locale) {
