@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by Lucas Sampaio Dias on 26/09/2018.
  */
 
-public class BlizzApiHelper {
+public class WarcraftApi {
 
     private static final String API_KEY = "awydkuy9tx3zksd7kkh2g5xchnwv4qy3";
     private static final String BASE_URL = "https://us.api.battle.net/wow/";
