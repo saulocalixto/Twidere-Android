@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class BlizzApiHelper {
 
-    private static final String API_KEY = "";
+    private static final String API_KEY = "awydkuy9tx3zksd7kkh2g5xchnwv4qy3";
     private static final String BASE_URL = "https://us.api.battle.net/wow/";
 
     /**
