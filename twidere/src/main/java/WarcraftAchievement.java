@@ -1,3 +1,5 @@
+import org.mariotaku.microblog.library.wow.api.WarcraftApi;
+
 import java.io.IOException;
 
 /**

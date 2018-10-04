@@ -1207,7 +1207,7 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
                     return Pair(AccountType.FANFOU, null)
                 }
                 AccountType.WoW -> {
-                    return Pair(AccountType.WoW, null)
+                    return Pair(type, null)
                 }
                 else -> {
                     if (user.isFanfouUser) {
