@@ -1,3 +1,5 @@
+package org.mariotaku.microblog.library.wow.api;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -9,9 +11,9 @@ import java.util.Scanner;
 
 public class WarcraftApi {
 
-    private final String API_KEY = "awydkuy9tx3zksd7kkh2g5xchnwv4qy3";
-    private final String BASE_URL = "https://us.api.battle.net/wow/";
-    private StringBuilder stringBuilder;
+    private static final String API_KEY = "awydkuy9tx3zksd7kkh2g5xchnwv4qy3";
+    private static final String BASE_URL = "https://us.api.battle.net/wow/";
+    private static StringBuilder stringBuilder;
 
     /**
      * Gets all the recent achievements of the specified guild in a JSON format (inside of a String)
@@ -21,7 +23,7 @@ public class WarcraftApi {
      * @return
      * @throws IOException
      */
-    public String getGuildAchievements(String server, String guild, ApiLocale locale)
+    public static String getGuildAchievements(String server, String guild, ApiLocale locale)
             throws IOException {
         URL url = new URL(getGuildApiLink("achievements", server, guild, locale));
         return getJson(url);
@@ -35,7 +37,7 @@ public class WarcraftApi {
      * @return
      * @throws IOException
      */
-    public String getGuildNews(String server, String guild, ApiLocale locale)
+    public static String getGuildNews(String server, String guild, ApiLocale locale)
             throws IOException {
         URL url = new URL(getGuildApiLink("news", server, guild, locale));
         return getJson(url);
@@ -49,11 +51,11 @@ public class WarcraftApi {
      * @return
      * @throws IOException
      */
-    public String getAchievement(String id, ApiLocale locale) throws IOException {
+    public static String getAchievement(String id, ApiLocale locale) throws IOException {
         return getJson(new URL(getAchievementApiLink(id, locale)));
     }
 
-    private String getAchievementApiLink(String id, ApiLocale locale) {
+    private static String getAchievementApiLink(String id, ApiLocale locale) {
         ApiLocale responseLocale = parseLocale(locale);
 
         return getStringBuilder()
@@ -77,7 +79,7 @@ public class WarcraftApi {
      * @param locale The language of the response.
      * @return
      */
-    private String getGuildApiLink(String fields, String server, String guild, ApiLocale locale) {
+    private static String getGuildApiLink(String fields, String server, String guild, ApiLocale locale) {
         ApiLocale responseLocale = parseLocale(locale);
 
         return getStringBuilder()
@@ -95,7 +97,7 @@ public class WarcraftApi {
             .toString();
     }
 
-    private String getJson(URL url) throws IOException {
+    private static String getJson(URL url) throws IOException {
         StringBuilder file = getStringBuilder();
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
         conn.setRequestMethod("GET");
@@ -113,7 +115,7 @@ public class WarcraftApi {
         return file.toString();
     }
 
-    private ApiLocale parseLocale(ApiLocale locale) {
+    private static ApiLocale parseLocale(ApiLocale locale) {
         ApiLocale responseLocale = locale;
         if (responseLocale == null)
             responseLocale = ApiLocale.en_US;
@@ -130,7 +132,7 @@ public class WarcraftApi {
     /**
      * All available languages for Battle.net API responses
      */
-    public enum ApiLocale {
+    public static enum ApiLocale {
         en_US, pt_BR, es_MX;
     }
 }

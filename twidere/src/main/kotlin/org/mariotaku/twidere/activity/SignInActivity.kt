@@ -621,7 +621,7 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
             allConfig.add(defaultConfig)
             val configGroup = allConfig.groupBy { it.safeType }
             val supportedAccountTypes = arrayOf(AccountType.TWITTER, AccountType.FANFOU,
-                    AccountType.MASTODON, AccountType.STATUSNET)
+                    AccountType.MASTODON, AccountType.STATUSNET, AccountType.WoW)
             val result = supportedAccountTypes.mapNotNullTo(ArrayList()) { type ->
                 if (type == AccountType.MASTODON) return@mapNotNullTo LoginType(type,
                         listOf(CustomAPIConfig.mastodon(context)))
@@ -640,7 +640,7 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
 
         }
 
-        private data class LoginType(val type: String, val configs: List<CustomAPIConfig>) {
+            private data class LoginType(val type: String, val configs: List<CustomAPIConfig>) {
             val hasChildren = configs.size > 1
         }
 
@@ -817,7 +817,7 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
             }
             auth = apiConfig.getOAuthAuthorization(accessToken) ?:
                     throw MicroBlogException("Invalid OAuth credential")
-            endpoint = MicroBlogAPIFactory.getOAuthEndpoint(apiUrlFormat, "api", versionSuffix,
+            endpoint = MicroBlogAPIFactory.getOAuthEndpoint(apiUrlFormat, "org/mariotaku/microblog/library/wow/api", versionSuffix,
                     apiConfig.isSameOAuthUrl)
 
             val twitter = newMicroBlogInstance(context, endpoint = endpoint, auth = auth,
@@ -945,7 +945,7 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
         private fun authBasic(): SignInResponse {
             val activity = activityRef.get() ?: throw InterruptedException()
             val versionSuffix = if (apiConfig.isNoVersionSuffix) null else "1.1"
-            val endpoint = Endpoint(MicroBlogAPIFactory.getApiUrl(apiUrlFormat, "api",
+            val endpoint = Endpoint(MicroBlogAPIFactory.getApiUrl(apiUrlFormat, "org/mariotaku/microblog/library/wow/api",
                     versionSuffix))
             val auth = BasicAuthorization(username, password)
             val twitter = newMicroBlogInstance(activity, endpoint = endpoint, auth = auth,
@@ -985,7 +985,7 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
         private fun authTwipOMode(): SignInResponse {
             val activity = activityRef.get() ?: throw InterruptedException()
             val versionSuffix = if (apiConfig.isNoVersionSuffix) null else "1.1"
-            val endpoint = Endpoint(MicroBlogAPIFactory.getApiUrl(apiUrlFormat, "api",
+            val endpoint = Endpoint(MicroBlogAPIFactory.getApiUrl(apiUrlFormat, "org/mariotaku/microblog/library/wow/api",
                     versionSuffix))
             val auth = EmptyAuthorization()
             val twitter = newMicroBlogInstance(activity, endpoint = endpoint, auth = auth,
@@ -1205,6 +1205,9 @@ class SignInActivity : BaseActivity(), OnClickListener, TextWatcher,
                 }
                 AccountType.FANFOU -> {
                     return Pair(AccountType.FANFOU, null)
+                }
+                AccountType.WoW -> {
+                    return Pair(AccountType.WoW, null)
                 }
                 else -> {
                     if (user.isFanfouUser) {

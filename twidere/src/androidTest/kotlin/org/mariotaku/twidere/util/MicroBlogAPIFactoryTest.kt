@@ -13,21 +13,21 @@ class MicroBlogAPIFactoryTest {
     @Test
     @Throws(Exception::class)
     fun testGetApiUrl() {
-        assertEquals("https://api.twitter.com/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "api", null))
-        assertEquals("https://api.twitter.com/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "api", null))
-        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "api", "/1.1/"))
-        assertEquals("https://api.twitter.com/1.1", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "api", "1.1"))
-        assertEquals("https://api.twitter.com/1.1", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "api", "/1.1"))
-        assertEquals("https://api.twitter.com/1.1", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "api", "/1.1"))
-        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "api", "1.1/"))
-        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "api", "1.1/"))
-        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "api", "/1.1/"))
-        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "api", "/1.1/"))
+        assertEquals("https://api.twitter.com/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "org/mariotaku/microblog/library/wow/api", null))
+        assertEquals("https://api.twitter.com/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "org/mariotaku/microblog/library/wow/api", null))
+        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "org/mariotaku/microblog/library/wow/api", "/1.1/"))
+        assertEquals("https://api.twitter.com/1.1", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "org/mariotaku/microblog/library/wow/api", "1.1"))
+        assertEquals("https://api.twitter.com/1.1", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "org/mariotaku/microblog/library/wow/api", "/1.1"))
+        assertEquals("https://api.twitter.com/1.1", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "org/mariotaku/microblog/library/wow/api", "/1.1"))
+        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "org/mariotaku/microblog/library/wow/api", "1.1/"))
+        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "org/mariotaku/microblog/library/wow/api", "1.1/"))
+        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com", "org/mariotaku/microblog/library/wow/api", "/1.1/"))
+        assertEquals("https://api.twitter.com/1.1/", MicroBlogAPIFactory.getApiUrl("https://[DOMAIN.]twitter.com/", "org/mariotaku/microblog/library/wow/api", "/1.1/"))
     }
 
     @Test
     fun testGetApiBaseUrl() {
         assertEquals("https://media.twitter.com", MicroBlogAPIFactory.getApiBaseUrl("https://api.twitter.com", "media"))
-        assertNotNull(HttpUrl.parse(MicroBlogAPIFactory.getApiBaseUrl("https://[invalid]twitter.com/", "api")))
+        assertNotNull(HttpUrl.parse(MicroBlogAPIFactory.getApiBaseUrl("https://[invalid]twitter.com/", "org/mariotaku/microblog/library/wow/api")))
     }
 }

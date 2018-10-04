@@ -196,6 +196,7 @@ class APIEditorDialogFragment : BaseDialogFragment() {
             add(AccountType.FANFOU)
             add(AccountType.MASTODON)
             add(AccountType.STATUSNET)
+            add(AccountType.WoW)
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -264,6 +265,7 @@ class APIEditorDialogFragment : BaseDialogFragment() {
                 AccountType.TWITTER -> context.getString(R.string.account_type_twitter)
                 AccountType.FANFOU -> context.getString(R.string.account_type_fanfou)
                 AccountType.MASTODON -> context.getString(R.string.account_type_mastodon)
+                AccountType.WoW -> context.getString(R.string.account_type_wow)
                 AccountType.STATUSNET -> context.getString(R.string.account_type_statusnet)
                 else -> throw UnsupportedOperationException(type)
             }

@@ -76,11 +76,11 @@ fun Credentials.getEndpoint(cls: Class<*>): Endpoint {
     val versionSuffix: String?
     when {
         MicroBlog::class.java.isAssignableFrom(cls) -> {
-            domain = "api"
+            domain = "org/mariotaku/microblog/library/wow/api"
             versionSuffix = if (noVersionSuffix) null else "/1.1/"
         }
         Twitter::class.java.isAssignableFrom(cls) -> {
-            domain = "api"
+            domain = "org/mariotaku/microblog/library/wow/api"
             versionSuffix = if (noVersionSuffix) null else "/1.1/"
         }
         TwitterUpload::class.java.isAssignableFrom(cls) -> {
@@ -88,11 +88,11 @@ fun Credentials.getEndpoint(cls: Class<*>): Endpoint {
             versionSuffix = if (noVersionSuffix) null else "/1.1/"
         }
         TwitterOAuth::class.java.isAssignableFrom(cls) -> {
-            domain = "api"
+            domain = "org/mariotaku/microblog/library/wow/api"
             versionSuffix = null
         }
         TwitterOAuth2::class.java.isAssignableFrom(cls) -> {
-            domain = "api"
+            domain = "org/mariotaku/microblog/library/wow/api"
             versionSuffix = null
         }
         TwitterUserStream::class.java.isAssignableFrom(cls) -> {

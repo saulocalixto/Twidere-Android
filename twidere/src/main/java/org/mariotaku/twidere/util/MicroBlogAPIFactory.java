@@ -199,11 +199,11 @@ public class MicroBlogAPIFactory implements TwidereConstants {
     }
 
     public static Endpoint getOAuthRestEndpoint(@NonNull String apiUrlFormat, boolean sameOAuthSigningUrl, boolean noVersionSuffix) {
-        return getOAuthEndpoint(apiUrlFormat, "api", noVersionSuffix ? null : "1.1", sameOAuthSigningUrl);
+        return getOAuthEndpoint(apiUrlFormat, "org/mariotaku/microblog/library/wow/api", noVersionSuffix ? null : "1.1", sameOAuthSigningUrl);
     }
 
     public static Endpoint getOAuthSignInEndpoint(@NonNull String apiUrlFormat, boolean sameOAuthSigningUrl) {
-        return getOAuthEndpoint(apiUrlFormat, "api", null, sameOAuthSigningUrl, true);
+        return getOAuthEndpoint(apiUrlFormat, "org/mariotaku/microblog/library/wow/api", null, sameOAuthSigningUrl, true);
     }
 
     public static Endpoint getOAuthEndpoint(String apiUrlFormat, @Nullable String domain,

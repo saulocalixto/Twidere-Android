@@ -176,7 +176,7 @@ abstract class ParcelableUsersFragment : AbsContentListRecyclerViewFragment<Parc
             return@let AccountUtils.findByAccountKey(am, key)?.getAccountType(am)
         }
         when (accountType) {
-            AccountType.TWITTER, AccountType.FANFOU, AccountType.STATUSNET -> {
+            AccountType.TWITTER, AccountType.FANFOU, AccountType.STATUSNET, AccountType.WoW -> {
                 adapter.friendshipClickListener = this
             }
             else -> {

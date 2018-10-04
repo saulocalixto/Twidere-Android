@@ -87,5 +87,15 @@
     "no_version_suffix": true,
     "consumer_key": "55c955ee84205e958093d9131bb47154",
     "consumer_secret": "a13013cac18c9a13bd3f77e1a909f925"
+  },
+  {
+    "name": "World WarCraft",
+    "type": "wow",
+    "api_url_format": "https://us.api.battle.net/",
+    "auth_type": "oauth",
+    "same_oauth_url": true,
+    "no_version_suffix": true,
+    "consumer_key": "awydkuy9tx3zksd7kkh2g5xchnwv4qy3",
+    "consumer_secret": "DQSz35ypKu682vKxJSww5xr6ZjAdZ9q5 "
   }
 ]

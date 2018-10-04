@@ -26,11 +26,13 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * Created by mariotaku on 2016/12/3.
  */
-@StringDef({AccountType.TWITTER, AccountType.STATUSNET, AccountType.FANFOU, AccountType.MASTODON})
+@StringDef({AccountType.TWITTER, AccountType.STATUSNET, AccountType.FANFOU, AccountType.MASTODON,
+        AccountType.WoW})
 @Retention(RetentionPolicy.SOURCE)
 public @interface AccountType {
     String TWITTER = "twitter";
     String STATUSNET = "statusnet";
     String FANFOU = "fanfou";
     String MASTODON = "mastodon";
+    String WoW = "wow";
 }
